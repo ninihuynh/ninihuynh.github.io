@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nini Huynh</title>
+    <title>Nini Huynh - Business-Minded Developer</title>
     <style>
         * {
             margin: 0;
@@ -12,10 +12,10 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: #1a1a1a;
+            background: #fafafa;
         }
 
         .container {
@@ -24,595 +24,760 @@
             padding: 0 20px;
         }
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        /* Unique Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%);
             color: white;
-            padding: 80px 0;
-            text-align: center;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .header-content h1 {
-            font-size: 3.5rem;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .unique-intro {
+            font-size: 1.3rem;
             margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .header-content .title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
             opacity: 0.9;
         }
 
-        .header-content p {
-            font-size: 1.2rem;
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #a8edea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
             margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            color: #a8edea;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
             opacity: 0.8;
         }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-
-        .contact-info span {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* Navigation */
+        /* Navigation with Personality */
         nav {
-            background: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            color: #2d1b69;
+            font-size: 1.2rem;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            justify-content: center;
-            gap: 40px;
+            gap: 30px;
         }
 
         nav a {
             text-decoration: none;
-            color: #333;
+            color: #1a1a1a;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         nav a:hover {
-            color: #667eea;
+            color: #2d1b69;
         }
 
-        /* Sections */
-        section {
-            padding: 80px 0;
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #11998e;
+            transition: width 0.3s ease;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: #333;
+        nav a:hover::after {
+            width: 100%;
         }
 
-        /* About Section */
-        .about-content {
+        /* Unique Value Proposition Section */
+        .value-prop {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .value-content {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
             align-items: center;
         }
 
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .value-text h2 {
+            font-size: 3rem;
+            color: #2d1b69;
+            margin-bottom: 30px;
+            line-height: 1.2;
         }
 
-        .skills-grid {
+        .value-text p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .differentiators {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        .skill-category {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .diff-item {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #11998e;
         }
 
-        .skill-category h4 {
-            color: #667eea;
+        .diff-item h4 {
+            color: #2d1b69;
             margin-bottom: 10px;
             font-size: 1.1rem;
         }
 
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            padding: 5px 0;
+        .diff-item p {
             color: #666;
+            font-size: 0.95rem;
+            margin: 0;
         }
 
-        /* Projects Section */
-        .projects-grid {
+        /* Business Impact Projects */
+        .projects {
+            padding: 100px 0;
+            background: #f8f9ff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: #2d1b69;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .projects-showcase {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            gap: 50px;
         }
 
-        .project-card {
+        .project-spotlight {
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 60px rgba(45, 27, 105, 0.1);
             transition: transform 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 400px;
         }
 
-        .project-card:hover {
+        .project-spotlight:hover {
             transform: translateY(-10px);
         }
 
-        .project-header {
-            padding: 30px;
+        .project-spotlight:nth-child(even) {
+            direction: rtl;
+        }
+
+        .project-spotlight:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .project-visual {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
+            font-size: 4rem;
+            position: relative;
         }
 
-        .project-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+        .project-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M20 20L10 30L30 30Z" stroke="white" stroke-opacity="0.1" stroke-width="1"/></g></svg>');
         }
 
-        .project-header .role {
-            opacity: 0.9;
-            font-size: 0.9rem;
-        }
-
-        .project-content {
-            padding: 30px;
-        }
-
-        .project-content p {
-            margin-bottom: 20px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .tech-stack {
+        .project-details {
+            padding: 50px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .tech-tag {
-            background: #f1f3f4;
-            color: #667eea;
-            padding: 5px 12px;
-            border-radius: 20px;
+        .project-type {
+            color: #11998e;
+            font-weight: 600;
             font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .project-links a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .project-links a:hover {
-            color: #764ba2;
-        }
-
-        /* Education Section */
-        .education-card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .education-card h3 {
-            color: #667eea;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .education-card .degree {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .coursework {
-            margin-top: 30px;
-        }
-
-        .coursework h4 {
-            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 15px;
         }
 
-        .coursework p {
+        .project-details h3 {
+            font-size: 2rem;
+            color: #2d1b69;
+            margin-bottom: 20px;
+        }
+
+        .project-details p {
             color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
             line-height: 1.6;
         }
 
-        /* Experience Section */
-        .experience-timeline {
-            max-width: 800px;
-            margin: 0 auto;
+        .impact-metrics {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 25px;
         }
 
-        .experience-item {
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d1b69;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tech-used {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .tech-tag {
+            background: #2d1b69;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: #11998e;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #2d1b69;
+            transform: translateX(5px);
+        }
+
+        /* Journey Section */
+        .journey {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .journey-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #11998e;
+            transform: translateX(-50%);
+        }
+
+        .journey-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .journey-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .journey-content {
             background: white;
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            width: 45%;
+            position: relative;
         }
 
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+        .journey-item:nth-child(odd) .journey-content {
+            margin-right: auto;
         }
 
-        .experience-header h3 {
-            color: #667eea;
+        .journey-item:nth-child(even) .journey-content {
+            margin-left: auto;
+        }
+
+        .journey-year {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #2d1b69;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .journey-content h3 {
+            color: #2d1b69;
+            margin-bottom: 15px;
             font-size: 1.3rem;
         }
 
-        .experience-header .company {
-            color: #333;
-            font-weight: 500;
-        }
-
-        .experience-header .duration {
+        .journey-content p {
             color: #666;
-            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
-        .experience-item ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .experience-item li {
-            padding: 5px 0;
-            color: #666;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .experience-item li:before {
-            content: "▶";
-            color: #667eea;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%);
             color: white;
             text-align: center;
-            padding: 40px 0;
         }
 
-        .footer-content {
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .contact p {
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+
+        .contact-links {
             display: flex;
             justify-content: center;
             gap: 30px;
-            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
-        .footer-content a {
+        .contact-link {
+            background: rgba(255, 255, 255, 0.1);
             color: white;
+            padding: 15px 30px;
             text-decoration: none;
-            transition: color 0.3s ease;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .footer-content a:hover {
-            color: #667eea;
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .header-content h1 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .contact-info {
-                flex-direction: column;
+            .value-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .differentiators {
+                grid-template-columns: 1fr;
+            }
+
+            .project-spotlight {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .project-spotlight:nth-child(even) {
+                direction: ltr;
+            }
+
+            .project-visual {
+                min-height: 200px;
+            }
+
+            .stats-row {
+                gap: 20px;
+            }
+
+            .impact-metrics {
                 gap: 15px;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .journey-timeline::before {
+                left: 20px;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .journey-item {
+                flex-direction: column !important;
             }
 
-            .experience-header {
-                flex-direction: column;
-                gap: 10px;
+            .journey-content {
+                width: 100%;
+                margin-left: 40px !important;
+                margin-right: 0 !important;
             }
 
-            nav ul {
+            .journey-year {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+
+            nav .container {
                 flex-direction: column;
                 gap: 20px;
             }
-        }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+            nav ul {
+                gap: 20px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .project-card, .education-card, .experience-item {
-            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
 <body>
-    <header>
+    <header class="hero">
         <div class="container">
-            <div class="header-content">
+            <div class="hero-content">
+                <p class="unique-intro">Developer who thinks like a business owner</p>
                 <h1>Nini Huynh</h1>
-                <p class="title">Computer Science Graduate & Software Developer</p>
-                <p>Passionate about creating innovative software solutions and building meaningful applications</p>
-                <div class="contact-info">
-                    <span>📧 ninikhuynh@gmail.com</span>
-                    <span>📱 (850) 208-4424</span>
-                    <span>📍 Pace, FL</span>
+                <p class="tagline">Building software that solves real problems for real businesses</p>
+                
+                <div class="stats-row">
+                    <div class="stat">
+                        <span class="stat-number">6+</span>
+                        <span class="stat-label">Years Business Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Business Applications Built</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Real-World Problem Solving</span>
+                    </div>
                 </div>
-                <a href="https://github.com/ninihuynh" class="btn">View GitHub</a>
             </div>
         </div>
     </header>
 
     <nav>
         <div class="container">
+            <div class="nav-brand">NH</div>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
+                <li><a href="#value">Why I'm Different</a></li>
+                <li><a href="#projects">Business Impact</a></li>
+                <li><a href="#journey">My Story</a></li>
+                <li><a href="#contact">Let's Talk</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="about">
+    <section id="value" class="value-prop">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a Computer Science graduate from the University of West Florida (May 2025). With a strong foundation in software development and database systems, I'm passionate about creating innovative solutions that solve real-world problems.</p>
-                    
-                    <p>My experience ranges from full-stack application development to database design and testing. I thrive in collaborative environments and enjoy tackling complex challenges with creative, efficient solutions.</p>
-                    
-                    <p>When I'm not coding, I bring the same attention to detail and customer service skills I've developed through my work in the service industry to every project I undertake.</p>
+            <div class="value-content">
+                <div class="value-text">
+                    <h2>I don't just write code.<br>I solve business problems.</h2>
+                    <p>Most developers learn to code and then try to understand business. I spent 6+ years running business operations first, then learned to code. This gives me something most developers lack: deep understanding of what businesses actually need.</p>
+                    <p>I don't build features. I build solutions that save time, reduce costs, and improve operations.</p>
                 </div>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Programming Languages</h4>
-                        <ul>
-                            <li>Java</li>
-                            <li>Python</li>
-                            <li>C++</li>
-                            <li>C</li>
-                            <li>HTML/CSS</li>
-                        </ul>
+                
+                <div class="differentiators">
+                    <div class="diff-item">
+                        <h4>Business Operations Expert</h4>
+                        <p>6+ years managing scheduling, inventory, payments, and customer service in a real business environment</p>
                     </div>
-                    <div class="skill-category">
-                        <h4>Tools & Technologies</h4>
-                        <ul>
-                            <li>MySQL</li>
-                            <li>JavaFX</li>
-                            <li>Git/GitHub</li>
-                            <li>JUnit/TestFX</li>
-                            <li>Visual Studio Code</li>
-                        </ul>
+                    <div class="diff-item">
+                        <h4>Domain Knowledge</h4>
+                        <p>I build applications for industries I understand intimately, not abstract problems from textbooks</p>
                     </div>
-                    <div class="skill-category">
-                        <h4>Methodologies</h4>
-                        <ul>
-                            <li>Agile Development</li>
-                            <li>Test-Driven Development</li>
-                            <li>Database Design</li>
-                            <li>UI/UX Design</li>
-                            <li>Project Management</li>
-                        </ul>
+                    <div class="diff-item">
+                        <h4>Testing-First Mindset</h4>
+                        <p>Business applications can't break. I prioritize reliability and comprehensive testing from day one</p>
+                    </div>
+                    <div class="diff-item">
+                        <h4>User-Centered Design</h4>
+                        <p>I've been on the receiving end of bad software. I design for the people who actually use the system</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
+            <div class="section-header">
+                <h2>Software That Drives Business Results</h2>
+                <p>Every application I build solves a real problem I've experienced firsthand</p>
+            </div>
+            
+            <div class="projects-showcase">
+                <div class="project-spotlight">
+                    <div class="project-visual">🤝</div>
+                    <div class="project-details">
+                        <span class="project-type">Team Leadership & Product Development</span>
                         <h3>StudyBuddy</h3>
-                        <p class="role">Lead Developer & Testing Lead</p>
-                    </div>
-                    <div class="project-content">
-                        <p>A desktop application that connects university students for study groups based on course schedules and academic subjects. Features intelligent matching algorithms and comprehensive user management.</p>
-                        <div class="tech-stack">
+                        <p>Led a team of 4 developers to build a desktop application that connects university students for study groups. Used Agile methodologies and comprehensive testing to deliver a reliable product.</p>
+                        
+                        <div class="impact-metrics">
+                            <div class="metric">
+                                <span class="metric-value">4</span>
+                                <span class="metric-label">Team Members Led</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">100%</span>
+                                <span class="metric-label">Test Coverage Goal</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-used">
                             <span class="tech-tag">Java</span>
                             <span class="tech-tag">JavaFX</span>
                             <span class="tech-tag">MySQL</span>
                             <span class="tech-tag">JUnit</span>
-                            <span class="tech-tag">TestFX</span>
+                            <span class="tech-tag">Agile</span>
                         </div>
-                        <div class="project-links">
-                            <a href="https://github.com/ninihuynh/StudyBuddy">View Code</a>
-                        </div>
+                        
+                        <a href="https://github.com/ninihuynh/StudyBuddy" class="project-link">
+                            View Project Details →
+                        </a>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-header">
+                <div class="project-spotlight">
+                    <div class="project-visual">💅</div>
+                    <div class="project-details">
+                        <span class="project-type">Industry-Specific Solution</span>
                         <h3>Nail Salon Management System</h3>
-                        <p class="role">Full-Stack Developer</p>
-                    </div>
-                    <div class="project-content">
-                        <p>A comprehensive business management system for nail salons, featuring appointment scheduling, customer management, inventory tracking, and sales reporting capabilities.</p>
-                        <div class="tech-stack">
+                        <p>Built from 6+ years of hands-on experience managing salon operations. Addresses real pain points: appointment conflicts, inventory waste, and payment tracking inefficiencies.</p>
+                        
+                        <div class="impact-metrics">
+                            <div class="metric">
+                                <span class="metric-value">6+</span>
+                                <span class="metric-label">Years Domain Experience</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">Multiple</span>
+                                <span class="metric-label">Business Processes</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-used">
                             <span class="tech-tag">Java</span>
                             <span class="tech-tag">Database Design</span>
                             <span class="tech-tag">Business Logic</span>
                         </div>
-                        <div class="project-links">
-                            <a href="https://github.com/ninihuynh/NailSalon">View Code</a>
-                        </div>
+                        
+                        <a href="https://github.com/ninihuynh/NailSalon" class="project-link">
+                            View Business Solution →
+                        </a>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-header">
+                <div class="project-spotlight">
+                    <div class="project-visual">📊</div>
+                    <div class="project-details">
+                        <span class="project-type">Data-Driven Decision Making</span>
                         <h3>Data Analysis Application</h3>
-                        <p class="role">Developer</p>
-                    </div>
-                    <div class="project-content">
-                        <p>An application designed for data processing and analysis, demonstrating proficiency in data structures, algorithms, and statistical analysis techniques.</p>
-                        <div class="tech-stack">
+                        <p>Understanding that good business decisions require good data analysis. Built tools to process and analyze business metrics, turning raw data into actionable insights.</p>
+                        
+                        <div class="impact-metrics">
+                            <div class="metric">
+                                <span class="metric-value">Complex</span>
+                                <span class="metric-label">Algorithms</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">Scalable</span>
+                                <span class="metric-label">Architecture</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-used">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Data Analysis</span>
-                            <span class="tech-tag">Algorithms</span>
+                            <span class="tech-tag">Data Structures</span>
+                            <span class="tech-tag">Analytics</span>
                         </div>
-                        <div class="project-links">
-                            <a href="https://github.com/ninihuynh/DataAnalysisApp">View Code</a>
-                        </div>
+                        
+                        <a href="https://github.com/ninihuynh/DataAnalysisApp" class="project-link">
+                            View Technical Implementation →
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="education">
+    <section id="journey" class="journey">
         <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-card">
-                <h3>University of West Florida</h3>
-                <p class="degree">Bachelor of Science in Computer Science</p>
-                <p><strong>Graduated:</strong> May 2025 | <strong>Location:</strong> Pensacola, FL</p>
-                <div class="coursework">
-                    <h4>Relevant Coursework</h4>
-                    <p>Data Structures and Algorithms, Software Engineering, Database Systems, Systems and Network, Discrete Structures, Introduction to AI, AI and ML in Cybersecurity, Secure Development, Database Security</p>
+            <div class="section-header">
+                <h2>From Business Operations to Software Engineering</h2>
+                <p>My unique path gives me perspective most developers don't have</p>
+            </div>
+            
+            <div class="journey-timeline">
+                <div class="journey-item">
+                    <div class="journey-content">
+                        <h3>Started in Business Operations</h3>
+                        <p>Began working front desk operations at 16, learning customer service, payment processing, scheduling, and inventory management. Discovered how bad software can make simple tasks incredibly difficult.</p>
+                    </div>
+                    <div class="journey-year">2016</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-content">
+                        <h3>Advanced to Service Delivery</h3>
+                        <p>Became a nail technician while continuing operations work. Gained deep understanding of service industry workflows, client management, and the importance of reliable systems that can't afford downtime.</p>
+                    </div>
+                    <div class="journey-year">2019</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-content">
+                        <h3>Pursued Computer Science</h3>
+                        <p>Started CS degree while continuing to work. Every programming concept immediately connected to real business problems I'd experienced. Focused on building applications that solve actual operational challenges.</p>
+                    </div>
+                    <div class="journey-year">2021</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-content">
+                        <h3>Led Software Development Team</h3>
+                        <p>Became Lead Developer on capstone project, applying Agile methodologies and testing practices learned from understanding what businesses actually need: reliable, well-tested software.</p>
+                    </div>
+                    <div class="journey-year">2025</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience">
+    <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Nail Technician</h3>
-                            <p class="company">Vivi Nails, Milton, FL</p>
-                        </div>
-                        <span class="duration">Nov 2019 – Present</span>
-                    </div>
-                    <ul>
-                        <li>Provide comprehensive nail services including manicures, pedicures, and custom nail art</li>
-                        <li>Manage appointment scheduling and coordinate daily service operations</li>
-                        <li>Track inventory levels and order supplies to maintain optimal stock levels</li>
-                        <li>Process client payments and maintain detailed service records</li>
-                        <li>Deliver exceptional customer service and support general salon operations</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Receptionist & Front Desk Operations</h3>
-                            <p class="company">Vivi Nails, Milton, FL</p>
-                        </div>
-                        <span class="duration">Jan 2016 – May 2019</span>
-                    </div>
-                    <ul>
-                        <li>Managed phone communications and scheduled client appointments efficiently</li>
-                        <li>Processed payments and operated cash register systems</li>
-                        <li>Maintained front desk supplies and managed retail inventory</li>
-                        <li>Utilized spreadsheets to track appointments, sales, and business metrics</li>
-                        <li>Assisted clients with inquiries and scheduling needs</li>
-                    </ul>
-                </div>
+            <h2>Ready to Build Something That Matters?</h2>
+            <p>Let's talk about how business experience + technical skills = better software</p>
+            
+            <div class="contact-links">
+                <a href="mailto:ninikhuynh@gmail.com" class="contact-link">📧 ninikhuynh@gmail.com</a>
+                <a href="https://github.com/ninihuynh" class="contact-link">💻 GitHub Portfolio</a>
+                <a href="tel:8502084424" class="contact-link">📱 (850) 208-4424</a>
             </div>
         </div>
     </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="mailto:ninikhuynh@gmail.com">Email</a>
-                <a href="https://github.com/ninihuynh">GitHub</a>
-                <a href="https://ninihuynh.github.io/">Website</a>
-            </div>
-            <p>&copy; 2025 Nini Huynh. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
+        // Smooth scrolling
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -623,10 +788,10 @@
             });
         });
 
-        // Animation on scroll
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -638,13 +803,47 @@
             });
         }, observerOptions);
 
-        // Observe all cards and sections
-        document.querySelectorAll('.project-card, .education-card, .experience-item').forEach(el => {
+        // Apply animation to key elements
+        document.querySelectorAll('.project-spotlight, .diff-item, .journey-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             observer.observe(el);
         });
+
+        // Dynamic stats counter
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = stat.textContent;
+                if (target.includes('+')) {
+                    const num = parseInt(target);
+                    let current = 0;
+                    const increment = num / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= num) {
+                            stat.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = Math.floor(current) + '+';
+                        }
+                    }, 50);
+                }
+            });
+        }
+
+        // Trigger stats animation when hero is visible
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        heroObserver.observe(document.querySelector('.hero'));
     </script>
 </body>
 </html>
