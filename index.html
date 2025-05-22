@@ -1,27 +1,650 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nini Huynh - Portfolio</title>
-  <style>
-    body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; padding: 1rem; }
-    h1 { color: #333; }
-    a { color: #007acc; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nini Huynh</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header-content .title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 5px 0;
+            color: #666;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-header {
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .project-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-header .role {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-content p {
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: #f1f3f4;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: #764ba2;
+        }
+
+        /* Education Section */
+        .education-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-card h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .education-card .degree {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .coursework {
+            margin-top: 30px;
+        }
+
+        .coursework h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .coursework p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .experience-header h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+        }
+
+        .experience-header .company {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .experience-header .duration {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item li {
+            padding: 5px 0;
+            color: #666;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .experience-item li:before {
+            content: "▶";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-content a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-content a:hover {
+            color: #667eea;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card, .education-card, .experience-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
 </head>
 <body>
-  <h1>Hi, I'm Nini 👋</h1>
-  <p>Welcome to my portfolio. I'm a developer interested in [your interests].</p>
-  
-  <h2>Projects</h2>
-  <ul>
-    <li><a href="https://github.com/ninihuynh/StudyBuddy">Project 1</a> – short description</li>
-    <li><a href="https://github.com/ninihuynh/NailSalon">Project 2</a> – short description</li>
-  </ul>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Nini Huynh</h1>
+                <p class="title">Computer Science Student & Software Developer</p>
+                <p>Passionate about creating innovative software solutions and building meaningful applications</p>
+                <div class="contact-info">
+                    <span>📧 ninikhuynh@gmail.com</span>
+                    <span>📱 (850) 208-4424</span>
+                    <span>📍 Pace, FL</span>
+                </div>
+                <a href="https://github.com/ninihuynh" class="btn">View GitHub</a>
+            </div>
+        </div>
+    </header>
 
-  <h2>Contact</h2>
-  <p>GitHub: <a href="https://github.com/ninihuynh">ninihuynh</a> | Email: [your email] | LinkedIn: [link]</p>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a Computer Science student at the University of West Florida, graduating in May 2025. With a strong foundation in software development and database systems, I'm passionate about creating innovative solutions that solve real-world problems.</p>
+                    
+                    <p>My experience ranges from full-stack application development to database design and testing. I thrive in collaborative environments and enjoy tackling complex challenges with creative, efficient solutions.</p>
+                    
+                    <p>When I'm not coding, I bring the same attention to detail and customer service skills I've developed through my work in the service industry to every project I undertake.</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <ul>
+                            <li>Java</li>
+                            <li>Python</li>
+                            <li>C++</li>
+                            <li>C</li>
+                            <li>HTML/CSS</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools & Technologies</h4>
+                        <ul>
+                            <li>MySQL</li>
+                            <li>JavaFX</li>
+                            <li>Git/GitHub</li>
+                            <li>JUnit/TestFX</li>
+                            <li>Visual Studio Code</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Methodologies</h4>
+                        <ul>
+                            <li>Agile Development</li>
+                            <li>Test-Driven Development</li>
+                            <li>Database Design</li>
+                            <li>UI/UX Design</li>
+                            <li>Project Management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>StudyBuddy</h3>
+                        <p class="role">Lead Developer & Testing Lead</p>
+                    </div>
+                    <div class="project-content">
+                        <p>A desktop application that connects university students for study groups based on course schedules and academic subjects. Features intelligent matching algorithms and comprehensive user management.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">JavaFX</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">JUnit</span>
+                            <span class="tech-tag">TestFX</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ninihuynh/StudyBuddy">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Nail Salon Management System</h3>
+                        <p class="role">Full-Stack Developer</p>
+                    </div>
+                    <div class="project-content">
+                        <p>A comprehensive business management system for nail salons, featuring appointment scheduling, customer management, inventory tracking, and sales reporting capabilities.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Database Design</span>
+                            <span class="tech-tag">Business Logic</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ninihuynh/NailSalon">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Data Analysis Application</h3>
+                        <p class="role">Developer</p>
+                    </div>
+                    <div class="project-content">
+                        <p>An application designed for data processing and analysis, demonstrating proficiency in data structures, algorithms, and statistical analysis techniques.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Algorithms</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ninihuynh/DataAnalysisApp">View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <h3>University of West Florida</h3>
+                <p class="degree">Bachelor of Science in Computer Science</p>
+                <p><strong>Expected Graduation:</strong> May 2025 | <strong>Location:</strong> Pensacola, FL</p>
+                <div class="coursework">
+                    <h4>Relevant Coursework</h4>
+                    <p>Data Structures and Algorithms, Software Engineering, Database Systems, Systems and Network, Discrete Structures, Introduction to AI, AI and ML in Cybersecurity, Secure Development, Database Security</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Nail Technician</h3>
+                            <p class="company">Vivi Nails, Milton, FL</p>
+                        </div>
+                        <span class="duration">Nov 2019 – Present</span>
+                    </div>
+                    <ul>
+                        <li>Provide comprehensive nail services including manicures, pedicures, and custom nail art</li>
+                        <li>Manage appointment scheduling and coordinate daily service operations</li>
+                        <li>Track inventory levels and order supplies to maintain optimal stock levels</li>
+                        <li>Process client payments and maintain detailed service records</li>
+                        <li>Deliver exceptional customer service and support general salon operations</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Receptionist & Front Desk Operations</h3>
+                            <p class="company">Vivi Nails, Milton, FL</p>
+                        </div>
+                        <span class="duration">Jan 2016 – May 2019</span>
+                    </div>
+                    <ul>
+                        <li>Managed phone communications and scheduled client appointments efficiently</li>
+                        <li>Processed payments and operated cash register systems</li>
+                        <li>Maintained front desk supplies and managed retail inventory</li>
+                        <li>Utilized spreadsheets to track appointments, sales, and business metrics</li>
+                        <li>Assisted clients with inquiries and scheduling needs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="mailto:ninikhuynh@gmail.com">Email</a>
+                <a href="https://github.com/ninihuynh">GitHub</a>
+                <a href="https://ninihuynh.github.io/">Website</a>
+            </div>
+            <p>&copy; 2025 Nini Huynh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.project-card, .education-card, .experience-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
